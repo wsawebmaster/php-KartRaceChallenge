@@ -1,0 +1,47 @@
+version: "3.9"
+
+networks:
+  rede_php:
+    driver: bridge
+
+services:
+  php:
+    image: php:8.0-apache
+    container_name: php
+    restart: always
+    volumes:
+      - ./php:/var/www/html
+    networks:
+      - rede_php
+    ports:
+      - "80:80"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Definindo a senha do root
+      MYSQL_DATABASE: db_php      # Banco de dados padrão (opcional)
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - rede_php
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root              # Usando root para acessar o phpMyAdmin
+      PMA_PASSWORD: root          # Senha do root
+    networks:
+      - rede_php
+    ports:
+      - "8080:80"

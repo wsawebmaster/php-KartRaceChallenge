@@ -56,6 +56,39 @@ Após análise do desafio proposto optei em dividir a solução nas seguintes et
 - Git e Github
 - Docker
 
+### Subir Containers do Projeto
+
+    docker-compose up -d
+
+### Caso necessite de permissões de acesso execute o comando na pasta raíz do projeto
+
+    sudo chmod -R 777 .
+
+### Dê permissão de execução ao script
+
+    chmod +x setup.sh
+
+### Execute o script
+
+    ./setup.sh
+
+### Acessar o
+
+Projeto: [http://localhost/](http://localhost/)<br />
+phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
+
+
+---
+---
+
+### Encerrar containers em execução
+
+    docker-compose down
+
+### Remover Todos os Contêineres e Imagens em Um Comando
+
+    docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)
+
 ---
 ---
 ## 📧 Contato
