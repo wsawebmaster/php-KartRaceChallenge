@@ -43,8 +43,7 @@ Após análise do desafio proposto optei em dividir a solução nas seguintes et
 - Preparação do ambiente de desenvolvimento em Docker
 - Criação de um arquivo SQL para gerar o banco e inserir dados obtidos no log
 - Criação do arquivo PHP para implementação da lógica
-- Criação de uma página web responsiva para apresentação dos resultados obtidos
-- Implementação de Ajax para melhorar a experiência de uso do sistema
+- Criação de uma página web para apresentação dos resultados obtidos
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -75,7 +74,7 @@ Após análise do desafio proposto optei em dividir a solução nas seguintes et
 ### Acessar o
 Projeto: [http://localhost/](http://localhost/)<br />
 
-### Faça importação do banco race_data.sql no phpMyAdmin
+### Faça importação do banco **race_data.sql** no phpMyAdmin
 phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
 
 
