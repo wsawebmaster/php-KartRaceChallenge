@@ -15,11 +15,11 @@ COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 # Criar a pasta php
-RUN mkdir -p /var/www/html/php
+# RUN mkdir -p /var/www/html/php
 
 # Copiando os arquivos PHP para o contêiner (produção)
-COPY *.php /var/www/html/php
+COPY --chown=www-data:www-data ./*.php /var/www/html/
 
 # Ajustando permissões para o diretório do Apache
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+# RUN chown -R www-data:www-data /var/www/html \
+#     && chmod -R 755 /var/www/html

@@ -1,30 +1,32 @@
 networks:
   rede_php:
     driver: bridge
+    name: rede_php
 
 services:
   php:
     build:
       context: .
-    user: "www-data"  # Executa o contêiner como o usuário www-data
+    user: "www-data" # Executa o contêiner como o usuário www-data
     container_name: php
     restart: always
     volumes:
-      - ./php:/var/www/html
+      - ./:/var/www/html/
     networks:
       - rede_php
     ports:
-      - "80:80"
+      - "8081:80"
 
   mysql:
     image: mysql:8.3
     container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root  # Definindo a senha do root
-      MYSQL_DATABASE: kart_race      # Banco de dados padrão (opcional)
+      MYSQL_ROOT_PASSWORD: root # Definindo a senha do root
+      # MYSQL_DATABASE: kart_race # Banco de dados padrão (opcional)
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./race_data.sql:/docker-entrypoint-initdb.d/1.sql
+      # - ./mysql:/var/lib/mysql
     networks:
       - rede_php
     ports:
@@ -39,8 +41,8 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
-      PMA_USER: root              # Usando root para acessar o phpMyAdmin
-      PMA_PASSWORD: root          # Senha do root
+      PMA_USER: root # Usando root para acessar o phpMyAdmin
+      PMA_PASSWORD: root # Senha do root
     networks:
       - rede_php
     ports:

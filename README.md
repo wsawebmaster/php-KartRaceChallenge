@@ -59,23 +59,9 @@ Após análise do desafio proposto optei em dividir a solução nas seguintes et
 
     docker-compose up -d
 
-### Caso necessite de permissões de acesso execute o comando na pasta raíz do projeto
-
-    sudo chmod -R 777 .
-
-### Dê permissão de execução ao script
-
-    chmod +x setup.sh
-
-### Execute o script
-
-    ./setup.sh
-
-### Faça importação do banco **race_data.sql** no phpMyAdmin
-phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
-
 ### Acessar o
-Projeto: [http://localhost/](http://localhost/)<br />
+Projeto: [http://localhost:8081/](http://localhost:8081/)<br />
+phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
 
 
 
@@ -93,7 +79,9 @@ Projeto: [http://localhost/](http://localhost/)<br />
 
 ---
 ---
+
 ## 📧 Contato
+
 [LinkedIn](https://www.linkedin.com/in/wsawebmaster/)
 
 [wsawebmaster@yahoo.com.br](mailto:wsawebmaster@yahoo.com.br)
