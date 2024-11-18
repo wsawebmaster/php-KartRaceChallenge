@@ -73,9 +73,13 @@ Após análise do desafio proposto optei em dividir a solução nas seguintes et
     ./setup.sh
 
 ### Acessar o
-
 Projeto: [http://localhost/](http://localhost/)<br />
+
+### Faça importação do banco race_data.sql no phpMyAdmin
 phpMyAdmin: [http://localhost:8080/](http://localhost:8080/)
+
+
+
 
 
 ---

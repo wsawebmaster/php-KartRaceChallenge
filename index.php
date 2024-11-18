@@ -24,7 +24,8 @@
   echo "<h3><p>Servidor Web PHP Rodando...</p></h3>";
 
   ?>
-  Acesse o phpMyAdmin <a  rel="noopener" target="_blank" href="http://localhost:8080">aqui</a>
+  Acesse o phpMyAdmin <a  rel="noopener" target="_blank" href="http://localhost:8080">aqui</a> para importar o Banco de Log<br />
+  
 </body>
 
 </html>

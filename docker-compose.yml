@@ -1,12 +1,12 @@
-version: "3.9"
-
 networks:
   rede_php:
     driver: bridge
 
 services:
   php:
-    image: php:8.0-apache
+    build:
+      context: .
+    user: "www-data"  # Executa o contêiner como o usuário www-data
     container_name: php
     restart: always
     volumes:
@@ -17,12 +17,12 @@ services:
       - "80:80"
 
   mysql:
-    image: mysql:8.0
+    image: mysql:8.3
     container_name: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root  # Definindo a senha do root
-      MYSQL_DATABASE: db_php      # Banco de dados padrão (opcional)
+      MYSQL_DATABASE: kart_race      # Banco de dados padrão (opcional)
     volumes:
       - ./mysql:/var/lib/mysql
     networks:
