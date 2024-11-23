@@ -1,21 +1,6 @@
 <?php
 
-$servername = "mysql";
-$username = "root";
-$password = "root";
-$dbname = "kart_race";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $sql = getResultsQuery();
-
-    $result = $conn->query($sql);
-} catch (PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-    exit;
-}
+include_once './connection.php';
 
 function getResultsQuery()
 {
@@ -80,54 +65,12 @@ function getResultRow($row, $formattedTime)
     <link rel="icon" href="https://fav.farm/🚗" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado da Corrida de Kart</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            font-size: .91rem;
-        }
+    <link rel="stylesheet" href="./style.css" />
 
-        table {
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            width: 90%;
-            max-width: 50rem;
-        }
-
-        th,
-        td {
-            padding: 12px 20px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #4E54C8;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            font-style: italic;
-            text-transform: uppercase;
-            font-size: .97rem;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #e6e6e6;
-        }
-    </style>
 </head>
 
 <body>
+    <h1>Resultado da Corrida de Kart</h1>
     <table>
         <tr>
             <th>Posição Chegada</th>
